@@ -23,7 +23,7 @@ class RefreshRecipesUseCaseTest {
         runTest {
             refreshRecipesUseCase()
 
-            coVerify(exactly = 1) { recipeRepository.refreshFromRemoteRecipes() }
+            coVerify(exactly = 1) { recipeRepository.getRecipesFromRemoteData() }
             coVerify(exactly = 0) { recipeRepository.getRecipes() }
         }
 }

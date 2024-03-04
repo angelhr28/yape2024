@@ -68,7 +68,7 @@ class RecipeRepositoryImplTest {
         val recipes: List<RecipeResponse> = listOf(mockk(relaxed = true))
 
         coEvery { remoteDataSource.getRecipes() } returns recipes
-        repository.refreshFromRemoteRecipes()
+        repository.getRecipesFromRemoteData()
 
         coVerify(exactly = 0) { localDataSource.getRecipes() }
         coVerify(exactly = 0) { localDataSource.getRecipeById(any()) }
@@ -83,7 +83,7 @@ class RecipeRepositoryImplTest {
     @Test
     fun `when dataSource return empty list should not invoke saveRecipes`() = runTest {
         coEvery { remoteDataSource.getRecipes() } returns emptyList()
-        repository.refreshFromRemoteRecipes()
+        repository.getRecipesFromRemoteData()
 
         coVerify(exactly = 0) { localDataSource.getRecipes() }
         coVerify(exactly = 0) { localDataSource.getRecipeById(any()) }

@@ -16,7 +16,7 @@ import javax.inject.Singleton
 @InstallIn(SingletonComponent::class)
 object RetrofitModule {
 
-    private const val BASE_URL = "https://demo8558821.mockable.io/"
+    private const val BASE_URL = "https://65e550593070132b3b25d36f.mockapi.io/"
 
     @Singleton
     @Provides

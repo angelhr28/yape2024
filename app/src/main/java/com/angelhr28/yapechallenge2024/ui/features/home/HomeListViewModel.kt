@@ -55,10 +55,7 @@ class HomeListViewModel @Inject constructor(
         try {
             getRecipesUseCase().collect { recipes ->
                 recipeList = recipes
-                searchRecipes()
-                if (recipes.isEmpty()) {
-                    refreshRecipes()
-                }
+                _uiState.update { it.copy(isLoading = false, recipes = recipeList) }
             }
         } catch (throwable: Throwable) {
             _uiState.update { it.copy(isLoading = false, error = throwable) }
