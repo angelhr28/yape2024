@@ -33,6 +33,6 @@ class GetRecipeByIdUseCaseTest {
         assertEquals(result, recipe)
         coVerify(exactly = 1) { recipeRepository.getRecipeById(recipeId) }
         coVerify(exactly = 0) { recipeRepository.getRecipes() }
-        coVerify(exactly = 0) { recipeRepository.refreshFromRemoteRecipes() }
+        coVerify(exactly = 0) { recipeRepository.getRecipesFromRemoteData() }
     }
 }

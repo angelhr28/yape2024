@@ -6,5 +6,5 @@ import javax.inject.Inject
 class RefreshRecipesUseCase @Inject constructor(
     private val recipeRepository: RecipeRepository
 ) {
-    suspend operator fun invoke() = recipeRepository.refreshFromRemoteRecipes()
+    suspend operator fun invoke() = recipeRepository.getRecipesFromRemoteData()
 }

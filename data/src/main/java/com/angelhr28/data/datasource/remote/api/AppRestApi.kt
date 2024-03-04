@@ -6,6 +6,6 @@ import retrofit2.http.GET
 
 interface AppRestApi {
 
-    @GET("recipes")
+    @GET("recipe")
     suspend fun getRecipes(): Response<List<RecipeResponse>>
 }
